@@ -16,4 +16,37 @@ public class Cart {
 
     private Instant created;
     private boolean isActive;
+
+    public Cart(User user, boolean isActive) {
+        this.user = user;
+        this.created = Instant.now();
+        this.isActive = isActive;
+    }
+
+    public Cart() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Instant getCreated() {
+        return created;
+    }
+
+    public void setCreated(Instant created) {
+        this.created = created;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
 }
