@@ -3,7 +3,7 @@ package com.niit.springsmartaccessories.models;
 import javax.persistence.*;
 import java.time.Instant;
 
-@Entity
+@Entity(name = "orders")
 public class Cart {
 
     @Id
