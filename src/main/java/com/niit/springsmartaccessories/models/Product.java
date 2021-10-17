@@ -19,6 +19,7 @@ public class Product {
 
     private String description;
 
+    @NotNull(message = "Product must have a category")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoryId", referencedColumnName = "categoryId")
     private Category category;
@@ -32,15 +33,24 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String description, double unitPrice, int stock) {
+    public Product(String productName, String description, double unitPrice, Category category, int stock) {
         this.productName = productName;
         this.description = description;
         this.unitPrice = unitPrice;
+        this.category = category;
         this.stock = stock;
     }
 
     public String getProductName() {
         return productName;
+    }
+
+    public long getId() {
+        return productId;
+    }
+
+    public void setId(long productId) {
+        this.productId = productId;
     }
 
     public void setProductName(String productName) {

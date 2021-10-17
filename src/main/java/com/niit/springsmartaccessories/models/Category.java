@@ -9,6 +9,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long categoryId;
@@ -25,6 +26,14 @@ public class Category {
     }
 
     public Category() {
+    }
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getCategoryName() {
