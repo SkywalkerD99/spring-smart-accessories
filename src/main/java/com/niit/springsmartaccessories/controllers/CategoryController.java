@@ -1,5 +1,6 @@
 package com.niit.springsmartaccessories.controllers;
 
+import com.niit.springsmartaccessories.dto.CategoryDto;
 import com.niit.springsmartaccessories.models.Category;
 import com.niit.springsmartaccessories.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class CategoryController {
     }
 
     @PostMapping("/create")
-    public void createCategory(@RequestBody Category category) {
-        categoryService.save(category);
+    public void createCategory(@RequestBody CategoryDto categoryDto) {
+        categoryService.save(categoryDto);
     }
 }
