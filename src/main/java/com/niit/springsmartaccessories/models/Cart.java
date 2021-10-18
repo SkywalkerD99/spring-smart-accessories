@@ -39,6 +39,14 @@ public class Cart {
     public Cart() {
     }
 
+    public long getCartId() {
+        return cartId;
+    }
+
+    public void setCartId(long cartId) {
+        this.cartId = cartId;
+    }
+
     public User getUser() {
         return user;
     }

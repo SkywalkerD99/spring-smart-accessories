@@ -25,8 +25,9 @@ public class LineItem {
     @Transient
     private long total;
 
-    public LineItem(Product product, Integer quantity) {
+    public LineItem(Cart cart, Product product, Integer quantity) {
         this.product = product;
+        this.cart = cart;
         this.quantity = quantity;
         this.total = (long)(quantity * product.getUnitPrice());
     }
@@ -40,6 +41,14 @@ public class LineItem {
 
     public void setLineItemId(long lineItemId) {
         this.lineItemId = lineItemId;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Product getProduct() {

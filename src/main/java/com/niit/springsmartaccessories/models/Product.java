@@ -45,11 +45,11 @@ public class Product {
         return productName;
     }
 
-    public long getId() {
+    public long getProductId() {
         return productId;
     }
 
-    public void setId(long productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
 
