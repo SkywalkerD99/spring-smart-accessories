@@ -2,8 +2,9 @@ package com.niit.springsmartaccessories.models;
 
 import javax.persistence.*;
 import java.time.Instant;
+import java.util.List;
 
-@Entity(name = "orders")
+@Entity
 public class Cart {
 
     @Id
@@ -15,6 +16,18 @@ public class Cart {
     public User user;
 
     private Instant created;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    private List<LineItem> lineItems;
+
+    public List<LineItem> getLineItems() {
+        return lineItems;
+    }
+
+    public void setLineItems(List<LineItem> lineItems) {
+        this.lineItems = lineItems;
+    }
+
     private boolean isActive;
 
     public Cart(User user, boolean isActive) {

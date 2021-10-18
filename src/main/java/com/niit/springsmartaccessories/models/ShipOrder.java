@@ -1,5 +1,7 @@
 package com.niit.springsmartaccessories.models;
 
+import org.springframework.data.util.Lazy;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.time.Instant;
@@ -7,31 +9,42 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-public class Order {
+public class ShipOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long orderId;
+    private long shipOrderId;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cartId", referencedColumnName = "cartId")
     private Cart cart;
 
     private LocalDateTime orderDate;
 
-    @NotNull
+    @Transient
     private long total;
 
     private Instant created;
 
-    public Order(Cart cart, LocalDateTime orderDate, long total) {
+    public ShipOrder(Cart cart, LocalDateTime orderDate) {
         this.cart = cart;
         this.orderDate = orderDate;
-        this.total = total;
         this.created = Instant.now();
+
+        long orderTotal = 0;
+        for (LineItem li: cart.getLineItems())
+            orderTotal = orderTotal + li.getTotal();
     }
 
-    public Order() {
+    public ShipOrder() {
+    }
+
+    public long getShipOrderId() {
+        return shipOrderId;
+    }
+
+    public void setShipOrderId(long shipOrderId) {
+        this.shipOrderId = shipOrderId;
     }
 
     public Cart getCart() {

@@ -9,7 +9,7 @@ public class LineItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long lineitemId;
+    private long lineItemId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "productId", referencedColumnName = "productId")
@@ -17,6 +17,10 @@ public class LineItem {
 
     @NotNull
     private Integer quantity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "cartId", referencedColumnName = "cartId")
+    private Cart cart;
 
     @Transient
     private long total;
@@ -28,6 +32,14 @@ public class LineItem {
     }
 
     public LineItem() {
+    }
+
+    public long getLineItemId() {
+        return lineItemId;
+    }
+
+    public void setLineItemId(long lineItemId) {
+        this.lineItemId = lineItemId;
     }
 
     public Product getProduct() {
