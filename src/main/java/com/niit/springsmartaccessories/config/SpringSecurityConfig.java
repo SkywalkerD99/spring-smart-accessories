@@ -24,13 +24,11 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers("/user").hasRole("USER")
-                .mvcMatchers("/users")
+                .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin();
-//                .anyRequest().authenticated()
-//                .and()
-//                .formLogin();
+
     }
 
     @Override
