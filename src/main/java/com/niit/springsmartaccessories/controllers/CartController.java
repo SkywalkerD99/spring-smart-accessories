@@ -1,5 +1,7 @@
 package com.niit.springsmartaccessories.controllers;
 
+import com.niit.springsmartaccessories.dto.CartDto;
+import com.niit.springsmartaccessories.models.Cart;
 import com.niit.springsmartaccessories.services.CartService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,5 +18,9 @@ public class CartController {
         this.cartService = cartService;
     }
 
+    @PostMapping("/create")
+    public void createCart(@RequestBody CartDto cartDto) {
+        cartService.save(cartDto);
+    }
 
 }

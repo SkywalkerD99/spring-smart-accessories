@@ -13,7 +13,7 @@ public interface ProductMapper {
 
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "productId", ignore = true)
     @Mapping(target = "productName", source = "productDto.name")
     @Mapping(target = "description", source = "productDto.description")
     @Mapping(target = "unitPrice", source = "productDto.price")

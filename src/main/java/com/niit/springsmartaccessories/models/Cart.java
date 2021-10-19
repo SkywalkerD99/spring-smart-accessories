@@ -20,23 +20,23 @@ public class Cart {
     @OneToMany(fetch = FetchType.LAZY)
     private List<LineItem> lineItems;
 
+    private boolean active;
+
+    public Cart(User user, boolean active) {
+        this.user = user;
+        this.created = Instant.now();
+        this.active = active;
+    }
+
+    public Cart() {
+    }
+
     public List<LineItem> getLineItems() {
         return lineItems;
     }
 
     public void setLineItems(List<LineItem> lineItems) {
         this.lineItems = lineItems;
-    }
-
-    private boolean isActive;
-
-    public Cart(User user, boolean isActive) {
-        this.user = user;
-        this.created = Instant.now();
-        this.isActive = isActive;
-    }
-
-    public Cart() {
     }
 
     public long getCartId() {
@@ -63,11 +63,11 @@ public class Cart {
         this.created = created;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public boolean getActive() {
+        return active;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        active = active;
     }
 }

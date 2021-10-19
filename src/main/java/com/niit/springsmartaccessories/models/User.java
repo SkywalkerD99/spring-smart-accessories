@@ -34,6 +34,14 @@ public class User {
     public User() {
     }
 
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
     public String getFirstname() {
         return firstname;
     }
