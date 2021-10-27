@@ -9,6 +9,8 @@ import com.niit.springsmartaccessories.repositories.CategoryRepository;
 import com.niit.springsmartaccessories.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
 
@@ -28,4 +30,13 @@ public class ProductService {
         Product product = productMapper.map(productDto, category);
         productRepository.save(product);
     }
+
+    public Product getProduct(long id) {
+        return productRepository.getById(id);
+    }
+
+    public List<Product> getProducts() {
+        return productRepository.findAll();
+    }
+
 }

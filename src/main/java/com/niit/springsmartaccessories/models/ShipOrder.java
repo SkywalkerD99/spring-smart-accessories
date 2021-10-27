@@ -59,7 +59,7 @@ public class ShipOrder {
         return orderDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
+    public void setOderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
     }
 

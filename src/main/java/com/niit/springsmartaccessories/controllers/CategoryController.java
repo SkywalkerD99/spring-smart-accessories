@@ -5,13 +5,10 @@ import com.niit.springsmartaccessories.models.Category;
 import com.niit.springsmartaccessories.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/categories")
+@RequestMapping(value = "/categories")
 public class CategoryController {
 
 
@@ -21,8 +18,8 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @PostMapping("/create")
-    public void createCategory(@RequestBody CategoryDto categoryDto) {
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public void createCategory(CategoryDto categoryDto) {
         categoryService.save(categoryDto);
     }
 }

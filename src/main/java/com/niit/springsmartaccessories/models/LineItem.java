@@ -7,6 +7,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class LineItem {
 
+    /*
+    This is the id of the entity class.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long lineItemId;
