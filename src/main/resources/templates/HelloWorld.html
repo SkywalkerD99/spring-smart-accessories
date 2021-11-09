@@ -9,12 +9,11 @@
 
 
 <p class="bg-dark" th:text="'Hello, world '" ></p>
-<!--<div class="bg-dark">-->
-<!--    <div class="bg-success">"Hello World!"</div>-->
-<!--    How ot be using a custom css file in your webpage and you dont know that ?-->
-<!--</div>-->
-<!--<script th:src="@{5.0/dist/js/bootstrap.bundle.min.js}"></script>-->
-<!--<script th:src="@{cdn.jsdelivr.net/npm/popperjs/core2.9.1/dist/umd/popper.min.js}"></script>-->
-<!--<script th:src="@{jquery.min.js}"></script>-->
+<form method="POST" enctype="multipart/form-data" action="/files/upload">
+    <table>
+        <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+        <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+    </table>
+</form>
 </body>
 </html>

@@ -19,16 +19,16 @@ public class ShipOrder {
     @JoinColumn(name = "cartId", referencedColumnName = "cartId")
     private Cart cart;
 
-    private LocalDateTime orderDate;
+    private LocalDateTime deliveryDate;
 
     @Transient
     private long total;
 
     private Instant created;
 
-    public ShipOrder(Cart cart, LocalDateTime orderDate) {
+    public ShipOrder(Cart cart, LocalDateTime deliveryDate) {
         this.cart = cart;
-        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
         this.created = Instant.now();
 
         long orderTotal = 0;
@@ -55,12 +55,12 @@ public class ShipOrder {
         this.cart = cart;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public LocalDateTime getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setOderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setDeliveryDate(LocalDateTime deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 
     public long getTotal() {

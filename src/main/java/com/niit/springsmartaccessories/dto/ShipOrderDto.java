@@ -6,12 +6,12 @@ public class ShipOrderDto {
 
     private long id;
     private long cartId;
-    private LocalDateTime orderDate;
+    private LocalDateTime deliveryDate;
 
-    public ShipOrderDto(long id, long cartId, LocalDateTime orderDate) {
+    public ShipOrderDto(long id, long cartId, LocalDateTime deliveryDate) {
         this.id = id;
         this.cartId = cartId;
-        this.orderDate = orderDate;
+        this.deliveryDate = deliveryDate;
     }
 
     public long getId() {
@@ -30,11 +30,11 @@ public class ShipOrderDto {
         this.cartId = cartId;
     }
 
-    public LocalDateTime getOrderDate() {
-        return orderDate;
+    public LocalDateTime getDeliveryDate() {
+        return deliveryDate;
     }
 
-    public void setOrderDate(LocalDateTime orderDate) {
-        this.orderDate = orderDate;
+    public void setDeliveryDate(LocalDateTime deliveryDate) {
+        this.deliveryDate = deliveryDate;
     }
 }

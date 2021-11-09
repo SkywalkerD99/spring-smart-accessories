@@ -5,6 +5,7 @@ import com.niit.springsmartaccessories.models.Category;
 import com.niit.springsmartaccessories.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public void save(CategoryDto categoryDto) {
+    public void save(CategoryDto categoryDto, MultipartFile file) {
         List<Category> categories = categoryRepository.findAll();
         for (Category cat: categories) {
             if (cat.getCategoryName().equals(categoryDto.getName()))

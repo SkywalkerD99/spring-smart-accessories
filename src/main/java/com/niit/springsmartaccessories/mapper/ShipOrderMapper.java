@@ -14,7 +14,7 @@ public interface ShipOrderMapper {
     ShipOrderMapper INSTANCE = Mappers.getMapper(ShipOrderMapper.class);
 
     @Mapping(target = "shipOrderId", ignore = true)
-    @Mapping(target = "orderDate", source = "shipOrderDto.orderDate")
+    @Mapping(target = "deliveryDate", source = "shipOrderDto.deliveryDate")
     @Mapping(target = "cart", source = "cart")
     ShipOrder map(ShipOrderDto shipOrderDto, Cart cart);
 

@@ -5,6 +5,7 @@ import com.niit.springsmartaccessories.services.ProductService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.security.RolesAllowed;
@@ -23,14 +24,16 @@ public class AuthController {
     public ModelAndView getAdmin() {
         ModelAndView mav = new ModelAndView("admin/index");
         CategoryDto categoryDto = new CategoryDto();
+        MultipartFile file = null;
         mav.addObject("productService", productService);
         mav.addObject("categoryDto", categoryDto);
+        mav.addObject("file", file);
         return mav;
     }
 
     @RolesAllowed("USER")
     @RequestMapping("/*")
-    public String getUser() {
-        return "template/shop";
+    public ModelAndView getUser() {
+        return new ModelAndView("template/shop");
     }
 }
